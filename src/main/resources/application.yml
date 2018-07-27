@@ -1,6 +1,5 @@
 spring:
-	application:
-		name: validation-with-group
-
+ application:
+  name: validation-with-group
 server:
-	port: 9000
+ port: 9000
