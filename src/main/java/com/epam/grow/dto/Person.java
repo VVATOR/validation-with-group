@@ -1,20 +1,33 @@
 package com.epam.grow.dto;
 
+import com.epam.grow.annotation.validation.constrasints.MyConstraint;
 import com.epam.grow.annotation.validation.groups.GroupA;
 import com.epam.grow.annotation.validation.groups.GroupB;
-import javax.validation.constraints.NotNull;
 
 public class Person {
 
   private String uid;
 
-  @NotNull(groups = {GroupA.class})
+  @MyConstraint(
+      message = "Field age is short"
+  )
+  private String age;
+
+  @MyConstraint(
+      groups = {GroupA.class},
+      message = "Field name is short"
+  )
   private String name;
 
-  @NotNull(groups = {GroupB.class})
+  @MyConstraint(
+      groups = {GroupB.class},
+      message = "Field middleName is short"
+  )
   private String middleName;
 
-  @NotNull(groups = {GroupA.class, GroupB.class})
+  @MyConstraint(
+      groups = {GroupA.class, GroupB.class},
+      message = "Field lastName is short")
   private String lastName;
 
   public Person() {
@@ -26,6 +39,14 @@ public class Person {
 
   public void setUid(String uid) {
     this.uid = uid;
+  }
+
+  public String getAge() {
+    return age;
+  }
+
+  public void setAge(String age) {
+    this.age = age;
   }
 
   public String getName() {
@@ -50,5 +71,17 @@ public class Person {
 
   public void setLastName(String lastName) {
     this.lastName = lastName;
+  }
+
+  @Override
+  public String toString() {
+    final StringBuffer sb = new StringBuffer("Person{");
+    sb.append("uid='").append(uid).append('\'');
+    sb.append(", age='").append(age).append('\'');
+    sb.append(", name='").append(name).append('\'');
+    sb.append(", middleName='").append(middleName).append('\'');
+    sb.append(", lastName='").append(lastName).append('\'');
+    sb.append('}');
+    return sb.toString();
   }
 }
