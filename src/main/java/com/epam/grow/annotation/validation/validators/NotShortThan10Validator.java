@@ -2,16 +2,16 @@ package com.epam.grow.annotation.validation.validators;
 
 import static java.util.Objects.isNull;
 
-import com.epam.grow.annotation.validation.constrasints.MyConstraint;
+import com.epam.grow.annotation.validation.constrasints.NotShortThan10Constraint;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class MyConstraintValidator implements ConstraintValidator<MyConstraint, String> {
+public class NotShortThan10Validator implements ConstraintValidator<NotShortThan10Constraint, String> {
 
   private String message;
 
   @Override
-  public void initialize(MyConstraint constraintAnnotation) {
+  public void initialize(NotShortThan10Constraint constraintAnnotation) {
     this.message = constraintAnnotation.message();
   }
 
