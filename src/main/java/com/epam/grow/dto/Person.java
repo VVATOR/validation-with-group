@@ -1,6 +1,6 @@
 package com.epam.grow.dto;
 
-import com.epam.grow.annotation.validation.constrasints.NotShortThan10Constraint;
+import com.epam.grow.annotation.validation.constrasints.LessThan20Constraint;
 import com.epam.grow.annotation.validation.groups.GroupA;
 import com.epam.grow.annotation.validation.groups.GroupB;
 import javax.validation.groups.Default;
@@ -9,33 +9,40 @@ public class Person {
 
   private String id;
 
-  @NotShortThan10Constraint(
+  @LessThan20Constraint(
       message = "Field uid is short"
   )
   private String uid;
 
-  @NotShortThan10Constraint(
+  @LessThan20Constraint(
       groups = Default.class,
       message = "Field age is short"
   )
   private String age;
 
-  @NotShortThan10Constraint(
+  @LessThan20Constraint(
       groups = {GroupA.class},
       message = "Field name is short"
   )
   private String name;
 
-  @NotShortThan10Constraint(
+  @LessThan20Constraint(
       groups = {GroupB.class},
       message = "Field middleName is short"
   )
   private String middleName;
 
-  @NotShortThan10Constraint(
+  @LessThan20Constraint(
       groups = {GroupB.class, GroupA.class},
       message = "Field lastName is short")
   private String lastName;
+
+  @LessThan20Constraint(
+      groups = {GroupA.class, GroupB.class },
+      message = "Field lastName_new is short")
+  private String lastName_new;
+
+
 
   public Person() {
     super();

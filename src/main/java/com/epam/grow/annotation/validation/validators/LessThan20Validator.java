@@ -2,16 +2,16 @@ package com.epam.grow.annotation.validation.validators;
 
 import static java.util.Objects.isNull;
 
-import com.epam.grow.annotation.validation.constrasints.NotShortThan10Constraint;
+import com.epam.grow.annotation.validation.constrasints.LessThan20Constraint;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class NotShortThan10Validator implements ConstraintValidator<NotShortThan10Constraint, String> {
+public class LessThan20Validator implements ConstraintValidator<LessThan20Constraint, String> {
 
   private String message;
 
   @Override
-  public void initialize(NotShortThan10Constraint constraintAnnotation) {
+  public void initialize(LessThan20Constraint constraintAnnotation) {
     this.message = constraintAnnotation.message();
   }
 
@@ -20,7 +20,7 @@ public class NotShortThan10Validator implements ConstraintValidator<NotShortThan
     if (isNull(str) || str.isEmpty()) {
       return true;
     }
-    if (str.length() < 10) {
+    if (str.length() > 20) {
       buildConstraintValidatorContext(message, "node", context);
       return false;
     }

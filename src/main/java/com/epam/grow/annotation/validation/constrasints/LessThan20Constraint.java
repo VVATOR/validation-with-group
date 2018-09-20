@@ -3,7 +3,7 @@ package com.epam.grow.annotation.validation.constrasints;
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
-import com.epam.grow.annotation.validation.validators.NotShortThan10Validator;
+import com.epam.grow.annotation.validation.validators.LessThan20Validator;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
@@ -13,8 +13,8 @@ import javax.validation.Payload;
 @Target(FIELD)
 @Retention(RUNTIME)
 @Documented
-@Constraint(validatedBy = NotShortThan10Validator.class)
-public @interface NotShortThan10Constraint {
+@Constraint(validatedBy = LessThan20Validator.class)
+public @interface LessThan20Constraint {
 
   String message() default "";
 
